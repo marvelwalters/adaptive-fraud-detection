@@ -1,0 +1,79 @@
+{
+  "accuracy": 0.9653333333333334,
+  "precision": 0.5060240963855421,
+  "recall": 0.7924528301886793,
+  "f1_score": 0.6176470588235294,
+  "roc_auc": 0.9594020158819156,
+  "confusion_matrix": [
+    [
+      1406,
+      41
+    ],
+    [
+      11,
+      42
+    ]
+  ],
+  "total_rows": 6000,
+  "train_rows": 4500,
+  "test_rows": 1500,
+  "fraud_rate": 0.035666666666666666,
+  "drift_windows": [
+    {
+      "window": "1-5",
+      "rows": 1009,
+      "fraud_rate": 0.027750247770069375,
+      "mean_amount": 5858.135123885035,
+      "precision": 0.43548387096774194,
+      "recall": 0.9642857142857143,
+      "f1_score": 0.6
+    },
+    {
+      "window": "6-10",
+      "rows": 1013,
+      "fraud_rate": 0.02073050345508391,
+      "mean_amount": 5295.155202369201,
+      "precision": 0.37735849056603776,
+      "recall": 0.9523809523809523,
+      "f1_score": 0.5405405405405406
+    },
+    {
+      "window": "11-15",
+      "rows": 998,
+      "fraud_rate": 0.022044088176352707,
+      "mean_amount": 5239.485631262525,
+      "precision": 0.4583333333333333,
+      "recall": 1.0,
+      "f1_score": 0.6285714285714286
+    },
+    {
+      "window": "16-20",
+      "rows": 993,
+      "fraud_rate": 0.01812688821752266,
+      "mean_amount": 4877.250493454179,
+      "precision": 0.40476190476190477,
+      "recall": 0.9444444444444444,
+      "f1_score": 0.5666666666666667
+    },
+    {
+      "window": "21-25",
+      "rows": 984,
+      "fraud_rate": 0.07317073170731707,
+      "mean_amount": 5414.632195121952,
+      "precision": 0.8354430379746836,
+      "recall": 0.9166666666666666,
+      "f1_score": 0.8741721854304636
+    },
+    {
+      "window": "26-30",
+      "rows": 1003,
+      "fraud_rate": 0.05284147557328016,
+      "mean_amount": 4667.913888334995,
+      "precision": 0.9272727272727272,
+      "recall": 0.9622641509433962,
+      "f1_score": 0.9444444444444444
+    }
+  ],
+  "drift_status": "No major drift detected",
+  "drift_reason": "Recall change: 0.00; mean transaction amount shift: 20.32%."
+}
