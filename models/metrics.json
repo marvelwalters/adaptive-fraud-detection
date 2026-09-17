@@ -1,79 +1,211 @@
 {
-  "accuracy": 0.9653333333333334,
-  "precision": 0.5060240963855421,
-  "recall": 0.7924528301886793,
-  "f1_score": 0.6176470588235294,
-  "roc_auc": 0.9594020158819156,
-  "confusion_matrix": [
-    [
-      1406,
-      41
-    ],
-    [
-      11,
-      42
-    ]
-  ],
+  "experiment_design": {
+    "initial_training": "steps 1-15",
+    "stable_reference": "steps 16-20",
+    "drift_observation": "steps 21-25",
+    "final_holdout": "steps 26-30",
+    "adaptation_training": "steps 1-25 after drift is observed",
+    "drift_injection": "controlled evolving fraud behaviour begins after step 22",
+    "drift_threshold": "recall or ROC-AUC drop >= 5%"
+  },
   "total_rows": 6000,
-  "train_rows": 4500,
-  "test_rows": 1500,
   "fraud_rate": 0.035666666666666666,
+  "initial_train_rows": 3020,
+  "adaptation_train_rows": 4997,
+  "reference_metrics": {
+    "rows": 993,
+    "fraud_cases": 18,
+    "fraud_rate": 0.01812688821752266,
+    "accuracy": 0.9718026183282981,
+    "precision": 0.34375,
+    "recall": 0.6111111111111112,
+    "f1_score": 0.44,
+    "roc_auc": 0.9842165242165242,
+    "confusion_matrix": [
+      [
+        954,
+        21
+      ],
+      [
+        7,
+        11
+      ]
+    ]
+  },
+  "drift_observation_metrics": {
+    "rows": 984,
+    "fraud_cases": 72,
+    "fraud_rate": 0.07317073170731707,
+    "accuracy": 0.9552845528455285,
+    "precision": 0.78,
+    "recall": 0.5416666666666666,
+    "f1_score": 0.639344262295082,
+    "roc_auc": 0.9434697855750489,
+    "confusion_matrix": [
+      [
+        901,
+        11
+      ],
+      [
+        33,
+        39
+      ]
+    ]
+  },
+  "pre_adaptation_future_metrics": {
+    "rows": 1987,
+    "fraud_cases": 125,
+    "fraud_rate": 0.06290890790135883,
+    "accuracy": 0.96527428283845,
+    "precision": 0.8589743589743589,
+    "recall": 0.536,
+    "f1_score": 0.6600985221674877,
+    "roc_auc": 0.9397357679914071,
+    "confusion_matrix": [
+      [
+        1851,
+        11
+      ],
+      [
+        58,
+        67
+      ]
+    ]
+  },
+  "pre_adaptation_final_metrics": {
+    "rows": 1003,
+    "fraud_cases": 53,
+    "fraud_rate": 0.05284147557328016,
+    "accuracy": 0.9750747756729811,
+    "precision": 1.0,
+    "recall": 0.5283018867924528,
+    "f1_score": 0.691358024691358,
+    "roc_auc": 0.9323435948361469,
+    "confusion_matrix": [
+      [
+        950,
+        0
+      ],
+      [
+        25,
+        28
+      ]
+    ]
+  },
+  "post_adaptation_final_metrics": {
+    "rows": 1003,
+    "fraud_cases": 53,
+    "fraud_rate": 0.05284147557328016,
+    "accuracy": 0.9810568295114656,
+    "precision": 0.9473684210526315,
+    "recall": 0.6792452830188679,
+    "f1_score": 0.7912087912087912,
+    "roc_auc": 0.9690963257199603,
+    "confusion_matrix": [
+      [
+        948,
+        2
+      ],
+      [
+        17,
+        36
+      ]
+    ]
+  },
   "drift_windows": [
     {
       "window": "1-5",
       "rows": 1009,
       "fraud_rate": 0.027750247770069375,
-      "mean_amount": 5858.135123885035,
-      "precision": 0.43548387096774194,
-      "recall": 0.9642857142857143,
-      "f1_score": 0.6
+      "precision": 0.56,
+      "recall": 1.0,
+      "f1_score": 0.717948717948718,
+      "roc_auc": 0.9985801660113587,
+      "anomaly_rate": 0.06442021803766106,
+      "mean_anomaly_score": 0.102550813995001
     },
     {
       "window": "6-10",
       "rows": 1013,
       "fraud_rate": 0.02073050345508391,
-      "mean_amount": 5295.155202369201,
-      "precision": 0.37735849056603776,
-      "recall": 0.9523809523809523,
-      "f1_score": 0.5405405405405406
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1_score": 0.6666666666666666,
+      "roc_auc": 0.9987039170506913,
+      "anomaly_rate": 0.05231984205330701,
+      "mean_anomaly_score": 0.11222201176657116
     },
     {
       "window": "11-15",
       "rows": 998,
       "fraud_rate": 0.022044088176352707,
-      "mean_amount": 5239.485631262525,
-      "precision": 0.4583333333333333,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1_score": 0.6285714285714286
+      "f1_score": 0.6666666666666666,
+      "roc_auc": 0.9987425484351714,
+      "anomaly_rate": 0.047094188376753505,
+      "mean_anomaly_score": 0.1048473288968539
     },
     {
       "window": "16-20",
       "rows": 993,
       "fraud_rate": 0.01812688821752266,
-      "mean_amount": 4877.250493454179,
-      "precision": 0.40476190476190477,
-      "recall": 0.9444444444444444,
-      "f1_score": 0.5666666666666667
+      "precision": 0.34375,
+      "recall": 0.6111111111111112,
+      "f1_score": 0.44,
+      "roc_auc": 0.9842165242165242,
+      "anomaly_rate": 0.054380664652567974,
+      "mean_anomaly_score": 0.09669353975437825
     },
     {
       "window": "21-25",
       "rows": 984,
       "fraud_rate": 0.07317073170731707,
-      "mean_amount": 5414.632195121952,
-      "precision": 0.8354430379746836,
-      "recall": 0.9166666666666666,
-      "f1_score": 0.8741721854304636
+      "precision": 0.78,
+      "recall": 0.5416666666666666,
+      "f1_score": 0.639344262295082,
+      "roc_auc": 0.9434697855750489,
+      "anomaly_rate": 0.06707317073170732,
+      "mean_anomaly_score": 0.09532810286925157
     },
     {
       "window": "26-30",
       "rows": 1003,
       "fraud_rate": 0.05284147557328016,
-      "mean_amount": 4667.913888334995,
-      "precision": 0.9272727272727272,
-      "recall": 0.9622641509433962,
-      "f1_score": 0.9444444444444444
+      "precision": 1.0,
+      "recall": 0.5283018867924528,
+      "f1_score": 0.691358024691358,
+      "roc_auc": 0.9323435948361469,
+      "anomaly_rate": 0.07178464606181456,
+      "mean_anomaly_score": 0.09382512792050914
     }
   ],
-  "drift_status": "No major drift detected",
-  "drift_reason": "Recall change: 0.00; mean transaction amount shift: 20.32%."
+  "drift_detected": true,
+  "drift_status": "Drift signal detected \u2014 adaptation triggered",
+  "drift_reason": "Reference recall was 61.1%. It fell to 54.2% in steps 21-25 (6.9% absolute drop). ROC-AUC also fell from 0.984 to 0.943 (0.041 drop).",
+  "recall_drop_at_drift": 0.06944444444444453,
+  "roc_auc_drop_at_drift": 0.040746738641475266,
+  "recall_drop_final_pre_adaptation": 0.08280922431865834,
+  "adaptation_gain": {
+    "recall": 0.15094339622641506,
+    "f1_score": 0.09985076651743319,
+    "roc_auc": 0.03675273088381337
+  },
+  "accuracy": 0.9810568295114656,
+  "precision": 0.9473684210526315,
+  "recall": 0.6792452830188679,
+  "f1_score": 0.7912087912087912,
+  "roc_auc": 0.9690963257199603,
+  "confusion_matrix": [
+    [
+      948,
+      2
+    ],
+    [
+      17,
+      36
+    ]
+  ],
+  "train_rows": 4997,
+  "test_rows": 1003
 }
